@@ -1,10 +1,9 @@
 {
-    "name": "crwlr/package-template",
-    "description": "Template repository for new crwlr packages.",
+    "name": "crwlr/crwl-ext-browser",
+    "description": "Extension configurations for integration of crwlr/crawler-ext-browser into the crwl.io app.",
     "keywords": [
         "crwlr"
     ],
-    "homepage": "https://www.crwlr.software/packages/...",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -15,17 +14,19 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/crwlrsoft/.../issues",
-        "source": "https://github.com/crwlrsoft/...",
-        "docs": "https://www.crwlr.software/packages/..."
+        "issues": "https://github.com/crwlrsoft/crwl-ext-browser/issues",
+        "source": "https://github.com/crwlrsoft/crwl-ext-browser"
     },
     "autoload": {
         "psr-4": {
-            "Crwlr\\PackageTemplate\\": "src/"
+            "Crwlr\\CrwlExtBrowser\\": "src/"
         }
     },
     "require": {
-        "php": "^8.1"
+        "php": "^8.1",
+        "crwlr/crawler-ext-browser": "^0.1.1",
+        "illuminate/support": "^10.43",
+        "crwlr/crwl-extension-utils": "^1.0"
     },
     "require-dev": {
         "pestphp/pest": "^2.19",
@@ -38,6 +39,13 @@
         "cs-fix": "@php vendor/bin/php-cs-fixer fix -v",
         "stan": "@php vendor/bin/phpstan analyse -c phpstan.neon",
         "add-git-hooks": "@php bin/add-git-hooks"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Crwlr\\CrwlExtBrowser\\ServiceProvider"
+            ]
+        }
     },
     "config": {
         "allow-plugins": {

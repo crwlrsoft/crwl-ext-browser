@@ -6,6 +6,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.0] - 20xx-xx-xx
+## [0.1.0] - 2024-02-07
 ### Added (Changed, Fixed, Remove)
-- foo bar
+* Initial version with step builders for the `Screenshots` and `GetColors` steps from the `crwlr/crawler-ext-browser` package.

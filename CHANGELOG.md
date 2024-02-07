@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2024-02-07
+### Fixed
+* Move registering extension package and steps to `boot` method of `ServiceProvider` because when doing it in `register`, the singleton binding of the `ExtensionPackageManager` does (or may) not exist yet.
+
 ## [0.2.0] - 2024-02-07
 ### Changed
 * Upgrade to support `crwlr/crwl-extension-utils` v2.0 and remove direct `illuminate/support` dependency.

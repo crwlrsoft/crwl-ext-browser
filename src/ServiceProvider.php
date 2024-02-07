@@ -18,7 +18,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      * @throws InvalidStepException
      * @throws BindingResolutionException
      */
-    public function register(): void
+    public function boot(): void
     {
         $this->app->make(ExtensionPackageManager::class)
             ->registerPackage('crwlr/crawler-ext-browser')

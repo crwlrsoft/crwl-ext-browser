@@ -8,15 +8,19 @@ use Crwlr\CrwlExtensionUtils\Exceptions\DuplicateExtensionPackageException;
 use Crwlr\CrwlExtensionUtils\Exceptions\DuplicateStepIdException;
 use Crwlr\CrwlExtensionUtils\Exceptions\InvalidStepException;
 use Crwlr\CrwlExtensionUtils\ExtensionPackageManager;
+use Illuminate\Contracts\Container\BindingResolutionException;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
-     * @throws DuplicateExtensionPackageException|DuplicateStepIdException|InvalidStepException
+     * @throws DuplicateExtensionPackageException
+     * @throws DuplicateStepIdException
+     * @throws InvalidStepException
+     * @throws BindingResolutionException
      */
     public function register(): void
     {
-        ExtensionPackageManager::singleton()
+        $this->app->make(ExtensionPackageManager::class)
             ->registerPackage('crwlr/crawler-ext-browser')
             ->registerStep(ScreenshotBuilder::class)
             ->registerStep(GetColorsBuilder::class);

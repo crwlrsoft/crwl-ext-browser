@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2024-02-17
+### Changed
+* Update `crwlr/crawler-ext-browser` to `1.0.0`
+
 ## [0.2.1] - 2024-02-07
 ### Fixed
 * Move registering extension package and steps to `boot` method of `ServiceProvider` because when doing it in `register`, the singleton binding of the `ExtensionPackageManager` does (or may) not exist yet.

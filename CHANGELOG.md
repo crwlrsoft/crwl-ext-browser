@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2024-02-22
+### Added
+* Config param `onlyAbovePercentage` for the `GetColors` step.
+
 ## [1.0.0] - 2024-02-17
 ### Changed
 * Update `crwlr/crawler-ext-browser` to `1.0.0`

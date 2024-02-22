@@ -4,6 +4,7 @@ namespace Crwlr\CrwlExtBrowser\StepBuilders;
 
 use Crwlr\Crawler\Steps\StepInterface;
 use Crwlr\CrawlerExtBrowser\Steps\GetColors;
+use Crwlr\CrwlExtensionUtils\ConfigParam;
 use Crwlr\CrwlExtensionUtils\StepBuilder;
 use Exception;
 
@@ -24,11 +25,23 @@ class GetColorsBuilder extends StepBuilder
      */
     public function configToStep(array $stepConfig): StepInterface
     {
-        return GetColors::fromImage();
+        $step = GetColors::fromImage();
+
+        $onlyAbovePercentage = $this->getValueFromConfigArray('onlyAbovePercentage', $stepConfig);
+
+        if ($onlyAbovePercentage !== null && $onlyAbovePercentage > 0.0) {
+            $step->onlyAbovePercentageOfImage($onlyAbovePercentage);
+        }
+
+        return $step;
     }
 
     public function configParams(): array
     {
-        return [];
+        return [
+            ConfigParam::float('onlyAbovePercentage')
+                ->inputLabel('Only Above Percentage')
+                ->description('Get only colors that make up at least a certain percentage of the image.'),
+        ];
     }
 }

@@ -46,6 +46,7 @@
             ]
         }
     },
+    "abandoned": "crwlr/crawler-ext-browser",
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true
